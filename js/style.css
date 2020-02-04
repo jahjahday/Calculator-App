@@ -1,0 +1,47 @@
+body {
+  background-color: white;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  display: flex;
+  padding: 0 10%;
+}
+
+.first-row,
+.second-row,
+.third.row,
+.fourth-row {
+  flex: 1;
+  background-color: white;
+}
+
+button {
+  height: 10vh;
+  width: 20vw;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+button:hover {
+  background-color: grey;
+  font-size: 2.5rem;
+}
+
+h1 {
+  text-align: end;
+  padding: 0 10%;
+}
+
+header {
+  height: 20vh;
+}
+
+.active {
+  background-color: skyblue;
+}
+
+.color {
+  background-color: lightgray;
+}
