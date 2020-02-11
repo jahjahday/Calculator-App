@@ -53,7 +53,7 @@ window.addEventListener("DOMContentLoaded", function calc() {
   });
 
   minusBtn.addEventListener("click", function() {
-    globalSign = '-';
+    globalSign = "-";
   });
 
   divideBtn.addEventListener("click", function() {
@@ -118,13 +118,16 @@ function multiplication(a, b) {
 }
 
 function signCalculations(num, sign) {
-  if (sign === "+") {
-    return addition(num[0], num[1]);
-  } else if (sign === "/") {
-    return divition(num[0], num[1]);
-  } else if (sign === "*") {
-    return multiplication(num[0], num[1]);
-  } else (sign === '-'); {
-    return subtraction(num[0], num[1]);
+  switch (sign) {
+    case "+":
+      return addition(num[0], num[1]);
+    case "-":
+      return subtraction(num[0], num[1]);
+    case "*":
+      return multiplication(num[0], num[1]);
+    case "/":
+      return divition(num[0], [1]);
+
+    default:
   }
 }
