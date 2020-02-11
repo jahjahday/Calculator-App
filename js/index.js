@@ -1,7 +1,10 @@
 window.addEventListener("DOMContentLoaded", function calc() {
   // Initialization
+  let globalStore = [];
+  let result = [];
+  let globalSign = "";
   const percentageBtn = document.querySelector(".percent");
-  const screenBtn = document.querySelector(".screen");
+  const screen = document.querySelector(".screen");
   const ceBtn = document.querySelector(".ce");
   const cBtn = document.querySelector(".c");
   const divideBtn = document.querySelector(".divide");
@@ -22,41 +25,106 @@ window.addEventListener("DOMContentLoaded", function calc() {
   const dotBtn = document.querySelector(".dot");
   const activeBtn = document.querySelector(".active");
 
-  //   Actions
+  //   Event Handlers
+
   oneBtn.addEventListener("click", function() {
-    screenBtn.textContent = "1";
+    screen.textContent = "1";
+    globalStore.push(1);
   });
   twoBtn.addEventListener("click", function() {
-    screenBtn.textContent = "2";
+    screen.textContent = "2";
+    globalStore.push(2);
   });
   threeBtn.addEventListener("click", function() {
-    screenBtn.textContent = "3";
+    screen.textContent = "3";
+    globalStore.push(3);
   });
   fourBtn.addEventListener("click", function() {
-    screenBtn.textContent = "4";
+    screen.textContent = "4";
+    globalStore.push(4);
   });
   fiveBtn.addEventListener("click", function() {
-    screenBtn.textContent = "5";
+    screen.textContent = "5";
+    globalStore.push(5);
   });
+
+  plusBtn.addEventListener("click", function() {
+    globalSign = "+";
+  });
+
+  minusBtn.addEventListener("click", function() {
+    globalSign = '-';
+  });
+
+  divideBtn.addEventListener("click", function() {
+    globalSign = "/";
+  });
+
+  multiplyBtn.addEventListener("click", function() {
+    globalSign = "*";
+  });
+
   sixBtn.addEventListener("click", function() {
-    screenBtn.textContent = "6";
+    screen.textContent = "6";
+    globalStore.push(6);
   });
   sevenBtn.addEventListener("click", function() {
-    screenBtn.textContent = "7";
+    screen.textContent = "7";
+    globalStore.push(7);
   });
   eightBtn.addEventListener("click", function() {
-    screenBtn.textContent = "8";
+    screen.textContent = "8";
+    globalStore.push(8);
   });
   nineBtn.addEventListener("click", function() {
-    screenBtn.textContent = "9";
+    screen.textContent = "9";
+    globalStore.push(9);
   });
   zeroBtn.addEventListener("click", function() {
-    screenBtn.textContent = "0";
+    screen.textContent = "0";
   });
   ceBtn.addEventListener("click", function() {
-    screenBtn.textContent = "0";
+    screen.textContent = "0";
+    globalStore = [];
   });
   cBtn.addEventListener("click", function() {
-    screenBtn.textContent = "0";
+    screen.textContent = "0";
+    globalStore = [];
+  });
+  activeBtn.addEventListener("click", function() {
+    screen.textContent = signCalculations(globalStore, globalSign);
   });
 });
+
+// Actions
+function addition(a, b) {
+  let result = a + b;
+  return result;
+}
+
+function subtraction(a, b) {
+  let result = a - b;
+  return result;
+}
+
+function divition(a, b) {
+  let result = a / b;
+  return result;
+}
+
+function multiplication(a, b) {
+  let result = a * b;
+  return result;
+}
+
+function signCalculations(num, sign) {
+  if (sign === "+") {
+    return addition(num[0], num[1]);
+  } else if (sign === "/") {
+    return divition(num[0], num[1]);
+  } else if (sign === "*") {
+    return multiplication(num[0], num[1]);
+  } else (sign === '-'); {
+    return subtraction(num[0], num[1]);
+  }
+}
